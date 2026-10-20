@@ -1,0 +1,33 @@
+# public だけは公開する（上の階層 haruharu/.htaccess の Require all denied を上書き）
+Require all granted
+
+# ロリポップ（Apache / LiteSpeed）用の設定
+# 実在するファイル以外へのアクセスは、すべて index.php に渡す
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # 本番では http を https に転送する
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP_HOST} !^localhost [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Service Worker と manifest の種類を正しく伝える
+AddType application/manifest+json .webmanifest
+AddType application/javascript .js
+
+# Service Worker と manifest は毎回新しいものを確かめる。CSS・JS は ?v= 付きなので長くキャッシュしてよい
+<IfModule mod_headers.c>
+  <FilesMatch "^(sw\.js|manifest\.json)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  <FilesMatch "\.(css|js|png|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "^sw\.js$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

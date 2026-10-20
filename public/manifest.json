@@ -1,0 +1,53 @@
+{
+    "id": "/",
+    "name": "就活日和",
+    "short_name": "就活日和",
+    "description": "就活の予定・タスク・ふりかえりを、ひとつに。",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#3a7bd5",
+    "theme_color": "#3a7bd5",
+    "lang": "ja",
+    "icons": [
+        {
+            "src": "/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/icons/icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/icons/icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "orientation": "portrait",
+    "shortcuts": [
+        {
+            "name": "タスク",
+            "url": "/tasks"
+        },
+        {
+            "name": "予定",
+            "url": "/schedule"
+        },
+        {
+            "name": "成長記録",
+            "url": "/growth"
+        }
+    ]
+}

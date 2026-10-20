@@ -1,0 +1,22 @@
+{
+    "name": "haruharu/shukatsu-note",
+    "description": "就活日和（haruharu.tech）",
+    "type": "project",
+    "require": {
+        "php": ">=8.2",
+        "minishlink/web-push": "^11.0",
+        "guzzlehttp/guzzle": "^7.15",
+        "php-http/guzzle7-adapter": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/App/"
+        }
+    },
+    "config": {
+        "platform-check": false,
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
+    }
+}

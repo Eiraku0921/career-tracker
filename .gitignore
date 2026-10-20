@@ -1,0 +1,13 @@
+# パスワードが入る設定ファイルは共有しない
+/config/config.php
+/config/config.production.php
+# Composer が入れるライブラリ（composer install で作り直せる）
+/vendor/
+# OS が作るファイル
+Thumbs.db
+.DS_Store
+
+# 鍵ファイル（VAPID・暗号化キー・Google）
+/config/keys.php
+# ログ・ログイン失敗の記録
+/storage/
